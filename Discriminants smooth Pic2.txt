@@ -29,6 +29,8 @@ for a in [1..5] do
  if #ll gt 0 then ll; end if;
 end for;
 
+// Computes MDS discriminants of quartic surfaces
+
 dis := [d : d in [1..1000] | IsDiscriminant(d) or IsSquare(d)];
 ll := [];
 for d in dis do
