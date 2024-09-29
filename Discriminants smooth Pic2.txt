@@ -8,17 +8,6 @@ IsMds := function(v)
  return IsEquivalent(f,g);
 end function;
 
-dis := [d : d in [1..1000] | IsDiscriminant(d) or IsSquare(d)];
-ll := [];
-for d in dis do
- for b in [0..3] do
-  c,r := Quotrem(b^2-d,8);
-  if r eq 0 and IsMds([2,b,c]) then 
-   Append(~ll,d);
-  end if;
- end for;
-end for;
-
 Rep := function(d)
   ll := [];
  for b in [0..3] do
@@ -40,5 +29,15 @@ for a in [1..5] do
  if #ll gt 0 then ll; end if;
 end for;
 
+dis := [d : d in [1..1000] | IsDiscriminant(d) or IsSquare(d)];
+ll := [];
+for d in dis do
+ for b in [0..3] do
+  c,r := Quotrem(b^2-d,8);
+  if r eq 0 and IsMds([2,b,c]) then 
+   Append(~ll,d);
+  end if;
+ end for;
+end for;
 
 
