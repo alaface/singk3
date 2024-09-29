@@ -28,4 +28,17 @@ Rep := function(d)
  return ll;
 end function;
 
+// Search for examples of K3 with the
+// same discriminant, one MDS the other not MDS
+
+for a in [1..5] do
+ lis := [];
+ for b in [0..a] do
+  lis := lis cat [<[a,b,c],b^2-4*a*c> : c in [-10..Floor(b^2/(4*a))]];
+ end for;
+ ll := [[u,v] : u,v in lis | u ne v and u[2] eq v[2] and IsMds(u[1]) ne IsMds(v[1])];
+ if #ll gt 0 then ll; end if;
+end for;
+
+
 
