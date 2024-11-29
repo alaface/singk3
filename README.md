@@ -37,6 +37,7 @@ for a in [1..5] do
         ll;
     end if;
 end for;
+```
 
 ### Compute MDS discriminants for quartic surfaces
 
@@ -53,3 +54,4 @@ for d in dis do
         end if;
     end for;
 end for;
+```
