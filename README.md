@@ -21,7 +21,7 @@ This repository contains a Magma program for exploring discriminants of K3 surfa
 ### Searching for K3 Surfaces with the Same Discriminant
 This block of code searches for examples of K3 surfaces with the same discriminant, where one is MDS and the other is not. It does so by generating quadratic forms and checking their discriminants and MDS properties.
 
-- The **outer loop** iterates over coefficients \( a \) in the range [1..5], initializing a list of quadratic forms.
+- The **outer loop** iterates over coefficients $a$ in the range [1..5], initializing a list of quadratic forms.
 - The **inner loop** iterates over \( b \) in the range [0..a], generating quadratic forms of the type \([a, b, c]\), where \( c \) is chosen such that the discriminant \( \Delta = b^2 - 4ac \) is meaningful.
 - For each pair of quadratic forms \([u, v]\), it checks:
   1. If they have the same discriminant.
