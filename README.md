@@ -21,9 +21,24 @@ This repository contains a Magma program for exploring discriminants of K3 surfa
 4. **Computation of MDS Discriminants**:
    - The script identifies discriminants of quartic surfaces that correspond to MDS forms.
 
-## Usage
+---
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/username/mds_k3_discriminants.git
-   cd mds_k3_discriminants/src
+## Main Scripts and Explanation
+
+### 1. Searching for K3 Surfaces with the Same Discriminant
+
+This loop identifies examples of K3 surfaces with the same discriminant, where one is MDS, and the other is not. The `IsMds` function is used to check the MDS property of each surface.
+
+```magma
+// Search for examples of K3 surfaces with the same discriminant,
+// one MDS and the other not MDS
+for a in [1..5] do
+    lis := [];
+    for b in [0..a] do
+        lis := lis cat [<[a, b, c], b^2 - 4 * a * c> : c in [-10..Floor(b^2 / (4 * a))]];
+    end for;
+    ll := [[u, v] : u, v in lis | u ne v and u[2] eq v[2] and IsMds(u[1]) ne IsMds(v[1])];
+    if #ll gt 0 then
+        ll;
+    end if;
+end for;
