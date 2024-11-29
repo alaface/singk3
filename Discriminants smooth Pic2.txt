@@ -1,45 +1,26 @@
+// Check if a vector represents a quadratic form that is MDS
 IsMds := function(v)
- d := v[2]^2-4*v[1]*v[3];
- if IsSquare(d) then return true; end if;
- Q := QuadraticForms(d);
- f := Q!v;
- u := Quotrem(d-(d mod 2),4);
- g := Q![-1,d mod 2,u];
- return IsEquivalent(f,g);
+    d := v[2]^2 - 4 * v[1] * v[3];
+    if IsSquare(d) then
+        return true;
+    end if;
+    Q := QuadraticForms(d);
+    f := Q!v;
+    u := Quotrem(d - (d mod 2), 4);
+    g := Q![-1, d mod 2, u];
+    return IsEquivalent(f, g);
 end function;
 
+// Compute specific representations for a given discriminant
 Rep := function(d)
-  ll := [];
- for b in [0..3] do
-  c,r := Quotrem(b^2-d,8);
-  if r eq 0 then Append(~ll,[2,b,c]); end if;
- end for;
- return ll;
+    ll := [];
+    for b in [0..3] do
+        c, r := Quotrem(b^2 - d, 8);
+        if r eq 0 then
+            Append(~ll, [2, b, c]);
+        end if;
+    end for;
+    return ll;
 end function;
-
-// Search for examples of K3 with the
-// same discriminant, one MDS the other not MDS
-
-for a in [1..5] do
- lis := [];
- for b in [0..a] do
-  lis := lis cat [<[a,b,c],b^2-4*a*c> : c in [-10..Floor(b^2/(4*a))]];
- end for;
- ll := [[u,v] : u,v in lis | u ne v and u[2] eq v[2] and IsMds(u[1]) ne IsMds(v[1])];
- if #ll gt 0 then ll; end if;
-end for;
-
-// Computes MDS discriminants of quartic surfaces
-
-dis := [d : d in [1..1000] | IsDiscriminant(d) or IsSquare(d)];
-ll := [];
-for d in dis do
- for b in [0..3] do
-  c,r := Quotrem(b^2-d,8);
-  if r eq 0 and IsMds([2,b,c]) then 
-   Append(~ll,d);
-  end if;
- end for;
-end for;
 
 
