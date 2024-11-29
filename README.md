@@ -22,8 +22,8 @@ This repository contains a Magma program for exploring discriminants of K3 surfa
 This block of code searches for examples of K3 surfaces with the same discriminant, where one is MDS and the other is not. It does so by generating quadratic forms and checking their discriminants and MDS properties.
 
 - The **outer loop** iterates over coefficients $a$ in the range [1..5], initializing a list of quadratic forms.
-- The **inner loop** iterates over \( b \) in the range [0..a], generating quadratic forms of the type \([a, b, c]\), where \( c \) is chosen such that the discriminant \( \Delta = b^2 - 4ac \) is meaningful.
-- For each pair of quadratic forms \([u, v]\), it checks:
+- The **inner loop** iterates over $b$ in the range [0..a], generating quadratic forms of the type $[a, b, c]$, where $c$ is chosen such that the discriminant $\Delta = b^2 - 4ac$ is meaningful.
+- For each pair of quadratic forms $[u, v]$, it checks:
   1. If they have the same discriminant.
   2. If one is MDS and the other is not, using the function `IsMds`.
 
@@ -50,11 +50,11 @@ end for;
 
 This section computes the discriminants of quartic surfaces corresponding to maximally degenerate surfaces (MDS). The discriminants are filtered and verified based on specific criteria.
 
-- The **list `dis`** is constructed by filtering discriminants \( d \) in the range [1..1000], retaining only those that:
+- The **list `dis`** is constructed by filtering discriminants $d$ in the range [1..1000], retaining only those that:
   1. Are perfect squares (`IsSquare(d)`).
   2. Are valid discriminants (`IsDiscriminant(d)`).
-- For each discriminant \( d \), the loop checks possible coefficients \( b \) in the range [0..3].
-- It computes \( c \) such that \( b^2 - d \) is divisible by 8 and verifies if the quadratic form \([2, b, c]\) is MDS using the function `IsMds`.
+- For each discriminant $d$, the loop checks possible coefficients $b$ in the range [0..3].
+- It computes $c$ such that $b^2 - d$ is divisible by 8 and verifies if the quadratic form $[2, b, c]$ is MDS using the function `IsMds`.
 
 ```magma
 dis := [d : d in [1..1000] | IsDiscriminant(d) or IsSquare(d)];
