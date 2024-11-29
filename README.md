@@ -46,14 +46,16 @@ for a in [1..5] do
 end for;
 ```
 
-### Compute MDS discriminants for quartic surfaces
-This block computes the discriminants of quartic surfaces that correspond to maximally degenerate surfaces (MDS). It filters a range of discriminants based on certain properties and verifies if they are MDS.
-	•	The list dis is constructed by filtering discriminants ( d ) in the range [1..1000], retaining only those that:
-	1.	Are perfect squares (IsSquare(d)).
-	2.	Are valid discriminants (IsDiscriminant(d)).
-	•	For each discriminant ( d ), the loop checks possible coefficients ( b ) in the range [0..3].
-	•	It computes ( c ) such that ( b^2 - d ) is divisible by 8 and verifies if the quadratic form ([2, b, c]) is MDS using IsMds.
- 
+### Computing MDS Discriminants for Quartic Surfaces
+
+This section computes the discriminants of quartic surfaces corresponding to maximally degenerate surfaces (MDS). The discriminants are filtered and verified based on specific criteria.
+
+- The **list `dis`** is constructed by filtering discriminants \( d \) in the range [1..1000], retaining only those that:
+  1. Are perfect squares (`IsSquare(d)`).
+  2. Are valid discriminants (`IsDiscriminant(d)`).
+- For each discriminant \( d \), the loop checks possible coefficients \( b \) in the range [0..3].
+- It computes \( c \) such that \( b^2 - d \) is divisible by 8 and verifies if the quadratic form \([2, b, c]\) is MDS using the function `IsMds`.
+
 ```magma
 dis := [d : d in [1..1000] | IsDiscriminant(d) or IsSquare(d)];
 ll := [];
