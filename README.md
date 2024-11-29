@@ -40,6 +40,7 @@ end for;
 
 ### Compute MDS discriminants for quartic surfaces
 
+```magma
 dis := [d : d in [1..1000] | IsDiscriminant(d) or IsSquare(d)];
 ll := [];
 for d in dis do
