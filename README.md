@@ -83,7 +83,7 @@ $$
 \end{pmatrix*},
 $$
 
-we compute the reduced $2 \times 2$ intersection matrix in the basis #\{H, -H + 2E_1 + E_2 + E_3\}# using the following Magma code:
+we compute the reduced $2 \times 2$ intersection matrix in the basis $\{H, -H + 2E_1 + E_2 + E_3\}$ using the following Magma code:
 
 ```magma
 // Define the 4x4 intersection matrix of the Picard lattice
