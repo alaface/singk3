@@ -4,7 +4,7 @@ This repository contains a Magma program for exploring discriminants of K3 surfa
 
 ## Structure
 
-- `Discriminants smooth Pic2.txt`: Contains utility functions to determine MDS properties and compute specific representations for discriminants.
+- `library.m`: Contains utility functions to determine MDS properties, compute specific representations for discriminants and compute intersection products on a surface after contracting a finite set of irreducible curves.
 
 ## Features
 
