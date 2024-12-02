@@ -105,8 +105,5 @@ B1 := H;
 B2 := [-1, 2, 1, 1];  // -H + 2E1 + E2 + E3
 
 // Compute the 2x2 intersection matrix in the new basis
-N := [
-    [qua(B1, B1, M, []), qua(B1, B2, M, [])],
-    [qua(B2, B1, M, []), qua(B2, B2, M, [])]
-];
+N := Matrix(2,2,[qua(a,b,M,[E[2],E[3]]) : a,b in [B1,B2]]);
 N;
