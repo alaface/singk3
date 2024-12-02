@@ -70,3 +70,43 @@ for d in dis do
     end for;
 end for;
 ```
+## Computing the Intersection Matrix for a singular $K3$ Surface
+
+Given a $K3$ surface with the following Picard lattice represented by the \(4 \times 4\) intersection matrix:
+
+$$
+\begin{pmatrix*}[r]
+  4 & 2 & 0 & 0 \\
+  2 & -2 & 1 & 1 \\
+  0 & 1 & -2 & 0 \\
+  0 & 1 & 0 & -2
+\end{pmatrix*},
+$$
+
+we compute the reduced \(2 \times 2\) intersection matrix in the basis \(\{H, -H + 2E_1 + E_2 + E_3\}\) using the following Magma code:
+
+```magma
+// Define the 4x4 intersection matrix of the Picard lattice
+M := [
+    [4, 2, 0, 0],
+    [2, -2, 1, 1],
+    [0, 1, -2, 0],
+    [0, 1, 0, -2]
+];
+
+// Define the vectors representing the basis of the Picard lattice
+H := [1, 0, 0, 0];
+E1 := [0, 1, 0, 0];
+E2 := [0, 0, 1, 0];
+E3 := [0, 0, 0, 1];
+
+// Define the new basis vectors
+B1 := H;
+B2 := [-1, 2, 1, 1];  // -H + 2E1 + E2 + E3
+
+// Compute the 2x2 intersection matrix in the new basis
+N := [
+    [qua(B1, B1, M, []), qua(B1, B2, M, [])],
+    [qua(B2, B1, M, []), qua(B2, B2, M, [])]
+];
+N;
