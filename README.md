@@ -72,7 +72,7 @@ end for;
 ```
 ## Computing the Intersection Matrix for a singular $K3$ Surface
 
-Given a $K3$ surface with the following Picard lattice represented by the \(4 \times 4\) intersection matrix:
+Given a $K3$ surface with the following Picard lattice represented by the $4 \times 4$ intersection matrix:
 
 $$
 \begin{pmatrix*}[r]
@@ -83,7 +83,7 @@ $$
 \end{pmatrix*},
 $$
 
-we compute the reduced \(2 \times 2\) intersection matrix in the basis \(\{H, -H + 2E_1 + E_2 + E_3\}\) using the following Magma code:
+we compute the reduced $2 \times 2$ intersection matrix in the basis #\{H, -H + 2E_1 + E_2 + E_3\}# using the following Magma code:
 
 ```magma
 // Define the 4x4 intersection matrix of the Picard lattice
